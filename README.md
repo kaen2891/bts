@@ -119,7 +119,7 @@ data/icbhi_dataset
 ## Result
 The proposed BTS achieves a 63.54% Score, which is the new state-of-the-art performance in ICBHI score.
 <p align="center">
-<img width="696" alt="image" src="https://github.com/kaen2891/stethoscope-guided_supervised_contrastive_learning/assets/46586785/0cdeca6c-89b0-4cba-ab9f-4307f54c2c8d">
+<img width="1072" alt="image" src="https://github.com/user-attachments/assets/dd415f4c-6f04-4713-9d27-e6cbee503f04">
 </p>
 
 
