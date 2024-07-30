@@ -2,8 +2,9 @@
 [arXiv](https://arxiv.org/abs/2406.06786) | [BibTeX](#bibtex)
 
 <p align="center">
-<img width="704" alt="image" src="https://github.com/kaen2891/stethoscope-guided_supervised_contrastive_learning/assets/46586785/d6f51658-df38-4a8b-8174-0cca9c8127fa">
+<img width="1057" alt="image" src="https://github.com/user-attachments/assets/afb5d3cb-2ce6-4e31-9fcf-ab44c37da22d">
 </p>
+
 
 Official Implementation of **BTS: Bridging Text and Sound Modalities for Metadata-Aided Respiratory Sound Classification.**<br/>
 
