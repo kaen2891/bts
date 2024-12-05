@@ -111,8 +111,6 @@ def parse_args():
     parser.add_argument('--ma_beta', type=float, default=0,
                         help='moving average value')
     parser.add_argument('--method', type=str, default='ce')
-    parser.add_argument('--proj_dim', type=int, default=768)
-    parser.add_argument('--te_alpha', type=float, default=0.5)
     
     
                         
@@ -122,13 +120,12 @@ def parse_args():
     args.lr_decay_epochs = list([])
     for it in iterations:
         args.lr_decay_epochs.append(int(it))
-    args.model_name = '{}_{}_{}'.format(args.dataset, args.model, args.method) if args.meta_mode == 'none' else '{}_{}_{}_{}'.format(args.dataset, args.model, args.method, args.meta_mode)
+    args.model_name = '{}_{}'.format(args.dataset, args.model) if args.meta_mode == 'none' else '{}_{}_{}'.format(args.dataset, args.model, args.meta_mode)
     if args.tag:
         args.model_name += '_{}'.format(args.tag)
     
     args.save_folder = os.path.join(args.save_dir, args.model_name)
-    if not os.path.isdir(args.save_folder):
-        os.makedirs(args.save_folder, exist_ok=True)
+    os.makedirs(args.save_folder, exist_ok=True)
 
     if args.warm:
         args.warmup_from = args.learning_rate * 0.1
@@ -191,10 +188,7 @@ def set_model(args):
         model = PretrainedCLAP(args.model, 512)
     
     if args.model_type == 'ClapModel':
-        if args.clap_final == 'concat':
-            classifier = nn.Linear(model.final_feat_dim * 2, args.n_cls)
-        elif args.clap_final == 'add':
-            classifier = nn.Linear(model.final_feat_dim, args.n_cls)
+        classifier = nn.Linear(model.final_feat_dim * 2, args.n_cls)
     else:
         classifier = nn.Linear(model.final_feat_dim, args.n_cls)
     
@@ -224,8 +218,7 @@ def set_model(args):
 
         print('pretrained model loaded from: {}'.format(args.pretrained_ckpt))
     
-    if args.method == 'ce':
-        criterion = [criterion.cuda()]
+    criterion = [criterion.cuda()]
     
     if torch.cuda.device_count() > 1:
         model = torch.nn.DataParallel(model)
@@ -272,13 +265,12 @@ def train(train_loader, model, classifier, projector, criterion, optimizer, epoc
         warmup_learning_rate(args, epoch, idx, len(train_loader), optimizer)
 
         with torch.cuda.amp.autocast():
-            if args.method == 'ce':
-                if args.model_type == 'ClapAudioModelWithProjection':
-                    features = model(images, args=args, alpha=alpha, training=True)
-                elif args.model_type == 'ClapModel':
-                    features = model((meta_texts, meta_masks, images), args=args, alpha=alpha, training=True)
-                output = classifier(features)
-                loss = criterion[0](output, labels)
+            if args.model_type == 'ClapAudioModelWithProjection':
+                features = model(images, args=args, alpha=alpha, training=True)
+            elif args.model_type == 'ClapModel':
+                features = model((meta_texts, meta_masks, images), args=args, alpha=alpha, training=True)
+            output = classifier(features)
+            loss = criterion[0](output, labels)
 
         losses.update(loss.item(), bsz)
         [acc1], _ = accuracy(output[:bsz], labels, topk=(1,))
