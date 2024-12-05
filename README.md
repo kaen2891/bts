@@ -1,5 +1,5 @@
 # BTS: Bridging Text and Sound Modalities for Metadata-Aided Respiratory Sound Classification (INTERSPEECH 2024)
-[arXiv](https://arxiv.org/abs/2406.06786) | [BibTeX](#bibtex)
+[arXiv](https://arxiv.org/abs/2406.06786) | [Conference](https://www.isca-archive.org/interspeech_2024/kim24f_interspeech.html) | [BibTeX](#bibtex)
 
 <p align="center">
 <img width="1057" alt="image" src="https://github.com/user-attachments/assets/afb5d3cb-2ce6-4e31-9fcf-ab44c37da22d">
@@ -128,10 +128,13 @@ The proposed BTS achieves a 63.54% Score, which is the new state-of-the-art perf
 If you find this repo useful for your research, please consider citing our paper:
 
 ```
-@article{kim2024bts,
-  title={BTS: Bridging Text and Sound Modalities for Metadata-Aided Respiratory Sound Classification},
-  author={Kim, June-Woo and Toikkanen, Miika and Choi, Yera and Moon, Seoung-Eun and Jung, Ho-Young},
-  journal={arXiv preprint arXiv:2406.06786},
-  year={2024}
+@inproceedings{kim24f_interspeech,
+  title     = {BTS: Bridging Text and Sound Modalities for Metadata-Aided Respiratory Sound Classification},
+  author    = {June-Woo Kim and Miika Toikkanen and Yera Choi and Seoung-Eun Moon and Ho-Young Jung},
+  year      = {2024},
+  booktitle = {Interspeech 2024},
+  pages     = {1690--1694},
+  doi       = {10.21437/Interspeech.2024-492},
+  issn      = {2958-1796},
 }
 ```
