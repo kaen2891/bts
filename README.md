@@ -10,6 +10,11 @@ Official Implementation of **BTS: Bridging Text and Sound Modalities for Metadat
 
 **See you in INTERSPEECH 2024!**
 
+## Updates
+The pretrained BTS checkpoint is available at [Google Drive](https://drive.google.com/file/d/1RziWDkqRTUictS_9zYWbJWj4i6C79RIy/view?usp=sharing).
+
+The model's performance on Specificity, Sensitivity, and ICBHI Score is **[82.58, 45.11, 63.85**].
+
 ## Prerequisites
 Please check environments and requirements before you start. If required, we recommend you to either upgrade versions or install them for smooth running.
 
