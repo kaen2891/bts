@@ -13,10 +13,12 @@ Official Implementation of **BTS: Bridging Text and Sound Modalities for Metadat
 ## Updates
 The pretrained BTS checkpoint is available at [Google Drive](https://drive.google.com/file/d/1RziWDkqRTUictS_9zYWbJWj4i6C79RIy/view?usp=sharing).
 
+Preprocessing training.pt and test.pt takes some time. You can download them directly from our [Google Drive-training](https://drive.google.com/file/d/1UD-HcpIzz3eZL03qZEligyANwgD4i6KH/view?usp=sharing), [Google Drive-test](https://drive.google.com/file/d/1q5zp4CFWy2g78BwoSfO3qLGN0zfDI2UN/view?usp=sharing).
+
 The model's performance on Specificity, Sensitivity, and ICBHI Score is **[82.58, 45.11, 63.85**].
 
 ## Prerequisites
-Please check environments and requirements before you start. If required, we recommend you to either upgrade versions or install them for smooth running.
+Please check the environments and requirements before you start. If required, we recommend you to either upgrade versions or install them for smooth running.
 
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
